@@ -13,19 +13,11 @@ bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-fac
 ## Facility By Application by Message Trigger
 ## Facility: MCTN
 ## Application: MMS
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic MCTN_ADT &
-## HL7
-## Enterprise By Application by Message Trigger
-## Facility: MCTN
-## Application: MMS
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic MMS_ADT &
-## HL7
-## Enterprise by Message Trigger
-## Application: MMS
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic ENT_ADT &
+## Routing transactions
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic MCTN_MMS_ADT_Routing &
 ## FHIR
 bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic FHIRSvr_Condition &
 ## FHIR
-## Ent. by Server
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic Ent_FHIRSvr_Condition &
+## Pardsed Data
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic FHIRSvr_Condition_Parsed &
 
