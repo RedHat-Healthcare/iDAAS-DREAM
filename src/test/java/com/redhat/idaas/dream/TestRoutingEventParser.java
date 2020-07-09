@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestRoutingEventParser extends CamelTestSupport {
+	/*
 	private static final Logger logger = LoggerFactory.getLogger(TestRoutingEventParser.class);
 
 	@Override
@@ -36,4 +37,6 @@ public class TestRoutingEventParser extends CamelTestSupport {
 		
 		template.sendBody("direct:routingEventParserRoute", msgBody);
 	}
+	*/
+
 }

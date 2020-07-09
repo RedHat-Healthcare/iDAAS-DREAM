@@ -52,16 +52,6 @@
 			<!-- End Maven dependency overrides -->
 			
 			<dependency>
-				<groupId>org.amqphub.spring</groupId>
-				<artifactId>amqp-10-jms-spring-boot-starter</artifactId>
-				<version>${amqphub.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.messaginghub</groupId>
-				<artifactId>pooled-jms</artifactId>
-				<version>${messaginghub.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.jboss.redhat-fuse</groupId>
 				<artifactId>fuse-springboot-bom</artifactId>
 				<version>${fuse.version}</version>
@@ -104,22 +94,9 @@
 			<artifactId>camel-netty4-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-amqp-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.amqphub.spring</groupId>
-			<artifactId>amqp-10-jms-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.messaginghub</groupId>
-			<artifactId>pooled-jms</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-
 		<!-- Decision Manager Dependencies -->
 		<dependency>
 			<groupId>org.kie</groupId>
@@ -159,12 +136,6 @@
 			<groupId>com.redhat.idaas</groupId>
 			<artifactId>idaas-eventbuilder</artifactId>
 			<version>1.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 		-->
 		<dependency>
@@ -214,7 +185,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 
 	<repositories>
 		<repository>

@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.redhat.idaas;
+package com.redhat.idaas.dream;
 
-import com.redhat.idaas.processors.DecisionManagerProcessor;
+// import com.redhat.idaas.processors.DecisionManagerProcessor;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
@@ -67,30 +67,23 @@ public class CamelConfiguration extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        /* Routing from AMQ-Streams Topic through routing event
-
-        from("amqp:topic:HL7_ADT?connectionFactory=#pooledJmsConnectionFactory&disableReplyTo=true&acknowledgementModeName=CLIENT_ACKNOWLEDGE")
-                .routeId("MiddleTierRouteAdmissions")
-                .log(LoggingLevel.INFO, log, "HL7 Body: ${body}")
-                // Bean Invocation
-                .bean(RoutingEventParser.class, "buildRoutingEvent(${body})")
-                .log(LoggingLevel.INFO, log, "Routing Event: ${body}")
-                //.process(decisionManagerProcessor)
-                .log(LoggingLevel.INFO, log, "Topics to route to: ${header.routingTopics}")
-                .recipientList(header("routingTopics"));
-        }
-        */
 
          /*
             Invoke RoutingeventParser needs to pass in body of message to get response object
          */
         from("netty4:tcp://0.0.0.0:10001?sync=true&decoder=#hl7Decoder&encoder=#hl7Encoder")
-                .routeId("ProcessADTAgainstRules")
-                .log(LoggingLevel.INFO, log, "HL7 Body: ${body}")
-                // Bean Invocation
-                .bean(RoutingEventParser.class, "buildRoutingEvent(${body})")
-                .log(LoggingLevel.INFO, log, "Routing Event: ${body}")
-                //.convertBodyTo(String.class).to("kafka://localhost:9092?topic=MCTN_MMS_ADT&brokers=localhost:9092")
+            .routeId("ProcessADTAgainstRules")
+            //.log(LoggingLevel.INFO, log, "HL7 Body: ${body}")
+
+            // Persist Original Message
+            .convertBodyTo(String.class).to("kafka://localhost:9092?topic=MCTN_MMS_ADT&brokers=localhost:9092")
+            // Process Message Routing
+            .bean(RoutingEventParser.class, "buildRoutingEvent(${body})")
+            .log(LoggingLevel.INFO, log, "Routing Event: ${body}")
+            .convertBodyTo(String.class).to("kafka://localhost:9092?topic=MCTN_MMS_ADT&brokers=localhost:9092")
+            // HL7 Ack Response to HL7 Message Sent Built by platform
+            //.transform(HL7.ack())
+            .convertBodyTo(String.class).to("kafka://localhost:9092?topic=MCTN_MMS_ADT&brokers=localhost:9092")
         ;
     }
 }
