@@ -3,15 +3,17 @@ package com.redhat.idaas;
 
 import java.util.Arrays;
 
+import com.redhat.idaas.pojos.platform.RoutingEvent;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
 import com.redhat.idaas.components.KjarDeployer;
-import com.redhat.idaas.idaas_rules.RoutingEvent;
-import com.redhat.idaas.idaas_rules.RoutingInfo;
+//import com.redhat.idaas.idaas_rules.RoutingEvent;
+//import com.redhat.idaas.idaas_rules.RoutingInfo;
 import com.redhat.idaas.processors.DecisionManagerProcessor;
+import org.apache.camel.test.junit4.CamelTestSupport;
 
 public class TestRuleProcessor extends CamelTestSupport {
 
@@ -52,7 +54,7 @@ public class TestRuleProcessor extends CamelTestSupport {
     @Test
     public void testDecisionManagerProcessorRoute() throws Exception {
         RoutingEvent routingEvent = new RoutingEvent();
-        routingEvent.setSendingApplication("MMS");
+        routingEvent.setSendingApp("MMS");
         routingEvent.setMessageType("ADT");
         routingEvent.setMessageEvent("A03");
 
@@ -62,21 +64,21 @@ public class TestRuleProcessor extends CamelTestSupport {
     @Test
     public void testRecipientListRoute() throws Exception {
         RoutingEvent routingEvent = new RoutingEvent();
-        routingEvent.setSendingApplication("MMS");
+        routingEvent.setSendingApp("MMS");
         routingEvent.setMessageType("ADT");
         routingEvent.setMessageEvent("A03");
 
-        RoutingInfo routingInfo = new RoutingInfo();
-        routingInfo.setTopicNames(Arrays.asList("log:testerA", "log:testerB", "log:testerC"));
+        //RoutingInfo routingInfo = new RoutingInfo();
+        //routingInfo.setTopicNames(Arrays.asList("log:testerA", "log:testerB", "log:testerC"));
 
-        template.sendBodyAndHeader("direct:recipientList", routingInfo,
-                "routingTopics", Arrays.asList("log:tester1", "log:tester2", "log:tester3"));
+        //template.sendBodyAndHeader("direct:recipientList", routingInfo,
+        //        "routingTopics", Arrays.asList("log:tester1", "log:tester2", "log:tester3"));
     }
 
     @Test
     public void testFullRoute() throws Exception {
         RoutingEvent routingEvent = new RoutingEvent();
-        routingEvent.setSendingApplication("MMS");
+        routingEvent.setSendingApp("MMS");
         routingEvent.setMessageType("ADT");
         routingEvent.setMessageEvent("A03");
 
@@ -89,7 +91,7 @@ public class TestRuleProcessor extends CamelTestSupport {
         DecisionManagerProcessor decisionManagerProcessor = new DecisionManagerProcessor(kjarDeployer);
 
         RoutingEvent routingEvent = new RoutingEvent();
-        routingEvent.setSendingApplication("MMS");
+        routingEvent.setSendingApp("MMS");
         routingEvent.setMessageType("ADT");
         routingEvent.setMessageEvent("A03");
 
