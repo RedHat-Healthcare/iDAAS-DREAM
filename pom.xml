@@ -7,8 +7,7 @@
 
 	<groupId>com.redhat.idaas</groupId>
 	<artifactId>idaas-dream</artifactId>
-	<version>1.5</version>
-
+	<version>2020-07</version>
 	<name>iDAAS DREAM</name>
 
 	<properties>
@@ -150,7 +149,7 @@
 		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-simple</artifactId> 
 			</dependency> -->
 
-		<!-- Bring in the data objects for the rules integration -->
+		<!-- Bring in the data objects for the rules integration
 		<dependency>
 			<groupId>com.redhat.idaas</groupId>
 			<artifactId>idaas-rules</artifactId>
@@ -167,7 +166,65 @@
 			<artifactId>camel-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-hl7-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-fhir-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-netty4-starter</artifactId>
+		</dependency>
+		<!--
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-amqp-starter</artifactId>
+          </dependency>
+          <dependency>
+            <groupId>org.amqphub.spring</groupId>
+            <artifactId>amqp-10-jms-spring-boot-starter</artifactId>
+          </dependency>
+          <dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
+          </dependency>
+          -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- Added for Camel Kafka -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-kafka</artifactId>
+			<version>2.23.2.fuse-760030-redhat-00001</version>
+		</dependency>
+		<!-- Servlet -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+		</dependency>
+		<!-- PDF -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-pdf</artifactId>
+		</dependency>
 	</dependencies>
 
 

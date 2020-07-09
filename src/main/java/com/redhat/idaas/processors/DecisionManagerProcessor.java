@@ -1,4 +1,5 @@
 package com.redhat.idaas.processors;
+//package com.redhat.idaas.parsers.platform.RoutingEventParser;
 
 import java.util.Collection;
 
@@ -11,8 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.redhat.idaas.components.KjarDeployer;
-import com.redhat.idaas.idaas_rules.RoutingEvent;
-import com.redhat.idaas.idaas_rules.RoutingInfo;
+//import com.redhat.idaas.idaas_rules.RoutingEvent;
+//import com.redhat.idaas.idaas_rules.RoutingInfo;
+import com.redhat.idaas.parsers.platform.RoutingEventParser;
 
 public class DecisionManagerProcessor implements Processor {
     private static final Logger logger = LoggerFactory.getLogger(DecisionManagerProcessor.class);
@@ -40,7 +42,8 @@ public class DecisionManagerProcessor implements Processor {
         logger.info(routingEvent.toString());
 
         // Convert the message over to the RoutingEvent expected by the rules engine
-        com.redhat.idaas.idaas_rules.RoutingEvent re = new com.redhat.idaas.idaas_rules.RoutingEvent();
+        //com.redhat.idaas.idaas_rules.RoutingEvent re = new com.redhat.idaas.idaas_rules.RoutingEvent();
+        com.redhat.idaas.parsers.platform.RoutingEventParser re = new com.redhat.idaas.parsers.platform.RoutingEventParser();
         re.setMessageEvent(routingEvent.getMessageEvent());
         re.setMessageType(routingEvent.getMessageType());
         re.setSendingApplication(routingEvent.getSendingApplication());
