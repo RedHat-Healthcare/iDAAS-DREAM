@@ -1,0 +1,24 @@
+package io.connectedhealth_idaas.eventbuilder.pojos.edi.hipaa;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+public class TFA {
+private String TFA_01_RateValueQualifier;
+private String TFA_02_TariffAdjustmentValueAmount;
+private String TFA_03_TariffAdjustmentValueAmount;
+private String TFA_04_TariffAdjustmentValueAmount;
+private String TFA_05_TariffAdjustmentValueAmount;
+private String TFA_06_TariffAdjustmentValueAmount;
+private String TFA_07_TariffAdjustmentValueAmount;
+private String TFA_08_TariffAdjustmentValueAmount;
+private String TFA_09_TariffAdjustmentValueAmount;
+private String TFA_10_TariffAdjustmentValueAmount;
+private String TFA_11_TariffAdjustmentValueAmount;
+private String TFA_12_TariffAdjustmentValueAmount;
+private String TFA_13_TariffAdjustmentValueAmount;
+private String TFA_14_TariffAdjustmentValueAmount;
+private String TFA_15_TariffAdjustmentValueAmount;
+private String TFA_16_TariffAdjustmentValueAmount;
+private String TFA_17_TariffAdjustmentValueAmount;
+public String toString() { return ReflectionToStringBuilder.toString(this);}
+}
+

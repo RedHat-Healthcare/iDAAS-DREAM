@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="idaas-dream" />
         <module name="iDAAS-DREAM" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="iDAAS-DREAM" target="1.8" />
+      <module name="idaas-dream" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
