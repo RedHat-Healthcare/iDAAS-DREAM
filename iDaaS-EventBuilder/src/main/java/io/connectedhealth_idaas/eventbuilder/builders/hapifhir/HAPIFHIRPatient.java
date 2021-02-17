@@ -3,10 +3,35 @@ package io.connectedhealth_idaas.eventbuilder.builders.hapifhir;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import org.hl7.fhir.r4.model.*;
+// Import builder class for ease of usage
+import io.connectedhealth_idaas.eventbuilder.builders.fhir.Patient;
 
+// https://hapifhir.io/hapi-fhir/docs/model/working_with_resources.html
+//https://hapifhir.io/hapi-fhir/apidocs/hapi-fhir-structures-r4/org/hl7/fhir/r4/model/package-summary.html
 public class HAPIFHIRPatient {
+    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.builders.fhir.Patient patientData)
+    {
+        // Create a patient object
+        org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();
+        patient.addIdentifier()
+                .setSystem("")
+                .setValue("12345");
+        patient.addName()
+                .setFamily("Jameson")
+                .addGiven("J")
+                .addGiven("Jonah");
+        patient.setGender(Enumerations.AdministrativeGender.MALE);
+        //patient.setBirthDate();
+        Address address = patient.addAddress()
+                //.setLine("");
+                .setCity("");
+        ContactPoint contactPoint = patient.addTelecom()
+                .setUse(ContactPoint.ContactPointUse.HOME);
+        //Returns
+        return patient;
+    }
 
-    public static void createPatientObject()
+    public static void createPatientObjectGeneric()
     {
         // Create a patient object
         org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();
